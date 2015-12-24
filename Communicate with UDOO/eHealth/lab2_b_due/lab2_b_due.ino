@@ -33,5 +33,7 @@ void loop() {
         break;
     }
   }*/
-  Serial.print(Serial1.read());
+  Serial.print((char)Serial1.read());
+  delay(100);
+  
 }
