@@ -103,12 +103,12 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
             return 0;
 
         }
-        if (LOWORD(wParam) == 3) {
-            printf("Button 3 clicked.\n");
+        if (LOWORD(wParam) == 2) {
+            printf("Button 2 clicked.\n");
 
             // Define the bytes you want to send, lookup ASCII table for this
             char bytes_to_send[1];
-            bytes_to_send[0] = 51;
+            bytes_to_send[0] = 50;
 
             // Declare variables and structures
             HANDLE hSerial;
@@ -185,12 +185,12 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
             return 0;
 
         }
-        if (LOWORD(wParam) == 2) {
-            printf("Button 2 clicked.\n");
+        if (LOWORD(wParam) == 3) {
+            printf("Button 3 clicked.\n");
 
             // Define the bytes you want to send, lookup ASCII table for this
             char bytes_to_send[1];
-            bytes_to_send[0] = 50;
+            bytes_to_send[0] = 51;
 
             // Declare variables and structures
             HANDLE hSerial;
