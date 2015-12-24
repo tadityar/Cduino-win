@@ -2,7 +2,7 @@
 Interfacing Arduino through C with Xbee to create an IoT device on Windows. As of writing the C code only works on Windows.
 
 # IDEs
-The professor's recommended IDE for this course is Eclipse for C/C++. The instructions and steps of configuring the IDE can be found [here]().
+The professor's recommended IDE for this course is Eclipse for C/C++. The instructions and steps of configuring the IDE can be found [here](https://www.dropbox.com/s/ka7zz7cwn7bzikx/SettingsandInstallations.pdf?dl=0).
 
 # Instructions
 #### Common Instruction
