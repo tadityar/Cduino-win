@@ -14,7 +14,7 @@ The professor's recommended IDE for this course is Eclipse for C/C++. The instru
 
 #### Remote LED Instruction
 1. Attach LED to pin 13 and GND on the UNO XBee shield and put the jumpers exactly at [this](http://imgur.com/a/P6Fyq) position.
-2. Upload the Arduino sketches for this lab titled "lab1_b_due.ino" and "lab1_b_uno.ino".
+2. Upload the Arduino sketches for this lab titled "lab1_b_due.ino" and "lab1_b_uno.ino"(Remember to remove the XBee shield before uploading).
 3. Modify write.c to match your settings (COM port number, what to send, and the baud rate).
 4. Run write.c with an IDE or gcc.
 5. Try running gui.c to see how to make simple gui in C.
@@ -22,4 +22,6 @@ The professor's recommended IDE for this course is Eclipse for C/C++. The instru
 #### eHealth Instruction
 1. Attach the eHealth shield on top of the XBee shield on the UNO and LED on pin 13 and GND of the eHealth shield.
 2. Connect the Pulsioximeter and body location sensor to the eHealth shield.
-3. 
+3. Upload the Arduino sketches for this lab titled "lab2_b_due.ino" and "lab2_b_uno.ino" (Remember to remove the XBee shield before uploading).
+4. Modify read.c and write.c to match your settings (COM port number, how many bytes to read, what to send, and the baud rate).
+5. Run read.c and write.c with an IDE or gcc.
