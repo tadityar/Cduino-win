@@ -3,9 +3,11 @@
 
 int main()
 {
-    // Define the bytes you want to send, lookup ASCII table for this
-    // char bytes_to_send[1];
-    // bytes_to_send[0] = 2;
+	FILE *fp;
+	//this is my file but I don't think you'll have a folder called Sharmin in your
+	//computer cos that would be super creepy.
+	//change it to the full path of the file you want to save the values to.
+	fp = fopen("C:/Users/Sharmin/Documents/eHealth_Pulse.txt", "a");
 
     // Declare variables and structures
     HANDLE hSerial;
@@ -15,7 +17,7 @@ int main()
     // Open the highest available serial port number
     fprintf(stderr, "Opening serial port...");
     hSerial = CreateFile(
-                "\\\\.\\COM9", GENERIC_READ|GENERIC_WRITE, 0, NULL,
+                "\\\\.\\COM8", GENERIC_READ|GENERIC_WRITE, 0, NULL,
                 OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL );
     if (hSerial == INVALID_HANDLE_VALUE)
     {
@@ -61,29 +63,22 @@ int main()
     // Read text
     DWORD dwRead;
     DWORD dwCommEvent;
-    char bytes_to_read[3];
+    char bytes_to_read[200];
     int i;
 
-    if(!WaitCommEvent(hSerial, &dwCommEvent, NULL))
-    {
-        fprintf(stderr, "Nothing to be read\n");
-    }
-    else
-    {
         fprintf(stderr, "Reading bytes...\n");
-        Sleep(500);
-        if(!ReadFile(hSerial, bytes_to_read, 3, &dwRead, NULL))
+        Sleep(30000);
+        if(!ReadFile(hSerial, bytes_to_read, 200, &dwRead, NULL))
         {
             fprintf(stderr, "Error\n");
             CloseHandle(hSerial);
             return 1;
         }
-        for (i = 0; i <= 3; i++){
+        for (i = 0; i <= 199; i++){
             char c = bytes_to_read[i];
-            fprintf(stderr, "%c", c);
+            fprintf(fp, "%c", c);
         }
-        fprintf(stderr, "\n");
-    }
+        fprintf(fp, "\n");
 
     /*fprintf(stderr, "Reading bytes...\n");
         //Sleep(500);
@@ -108,7 +103,7 @@ int main()
         return 1;
     }
     fprintf(stderr, "OK\n");
-
+    fclose(fp);
     // exit normally
     return 0;
 }
