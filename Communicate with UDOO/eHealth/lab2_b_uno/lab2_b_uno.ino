@@ -1,3 +1,7 @@
+//download the eHealth library from 
+//https://www.cooking-hacks.com/documentation/tutorials/ehealth-biometric-sensor-platform-arduino-raspberry-pi-medical#step3_1
+
+
 #include <PinChangeInt.h>
 #include <PinChangeIntConfig.h>
 
@@ -11,30 +15,10 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   eHealth.initPulsioximeter();
-  pinMode(13, OUTPUT);
   // Attach the interruptions for using the pulsioximeter.
   PCintPort::attachInterrupt(6, readPulsioximeter, RISING);
+  delay(1000);
 }
-
-void loop() {
-    /*int bpm = eHealth.getBPM(); // get heart beats per minute
-    Serial.print(bpm); // print heart beats per minute and send value to XBee module
-    delay(490);*/
-    Serial.print(1);
-    int incomingByte = Serial.read();
-    switch (incomingByte)
-    {
-      case '1':
-        digitalWrite(13, HIGH);
-        break;
-      case '2':
-        digitalWrite(13, LOW);
-        break;
-    }
-}
-
-//Always include this code when using the pulsioximeter sensor
-//=========================================================================
 
 void readPulsioximeter(){
   cont ++;
@@ -43,4 +27,12 @@ void readPulsioximeter(){
     eHealth.readPulsioximeter();
     cont = 0;
   }
+}
+
+
+void loop() {
+    int bpm = eHealth.getBPM(); // get heart beats per minute
+    Serial.print(bpm); // print heart beats per minute and send value to XBee module
+    Serial.println();
+    delay(490);
 }
