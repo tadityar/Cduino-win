@@ -5,11 +5,13 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   Serial1.begin(9600);
-  pinMode(ledPin, OUTPUT);
   delay(500);
 }
 
 void loop() {
-  Serial.print((char)Serial1.read());
+  if(Serial1.available()){
+  Serial.print(Serial1.read());
+  Serial.println();
   delay(490);
+  }
 }
