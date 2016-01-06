@@ -32,7 +32,6 @@ void readPulsioximeter(){
 
 void loop() {
     int bpm = eHealth.getBPM(); // get heart beats per minute
-    Serial.print(bpm); // print heart beats per minute and send value to XBee module
-    Serial.println();
+    Serial.write(bpm); // print heart beats per minute and send value to XBee module
     delay(490);
 }
