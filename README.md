@@ -25,3 +25,13 @@ The professor's recommended IDE for this course is Eclipse for C/C++. The instru
 3. Upload the Arduino sketches for this lab titled "lab2_b_due.ino" and "lab2_b_uno.ino" (Remember to remove the XBee shield before uploading).
 4. Modify read.c and write.c to match your settings (COM port number, how many bytes to read, what to send, and the baud rate).
 5. Run read.c and write.c with an IDE or gcc.
+
+#### Cloud Upload Instruction
+1. Here we're using a library called curl. It's commonly installed on *NIX based OS but on Windows we need to download and install it first. Download [here](http://curl.haxx.se/dlwiz/?type=lib&os=Win32&flav=-).
+2. Extract the zip file and copy the "curl" folder inside the "include" folder to the same directory as your C project.
+3. Copy the entire content of the "bin" folder to your %windir% (just type that on your windows explorer address).
+4. Configure your IDE to include the library in the linker settings, here's the guide to do it on eclipse and here's the guide to do it on code blocks.
+5. We're going to test our sending mechanism through a free web applications at dweet.io . Choose a unique name for your project.
+6. Modify upload.c to match with your URL. It should be "http://dweet.io/dweet/for/project-name?"
+7. Also modify the things you want to send.
+8. To check if your send is successful go to "http://dweet.io/get/dweets/for/project-name" and your datas will be converted into a JSON form.
