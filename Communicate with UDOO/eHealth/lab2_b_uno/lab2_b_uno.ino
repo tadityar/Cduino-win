@@ -15,6 +15,7 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   eHealth.initPulsioximeter();
+  eHealth.initPositionSensor();  
   // Attach the interruptions for using the pulsioximeter.
   PCintPort::attachInterrupt(6, readPulsioximeter, RISING);
   delay(1000);
@@ -33,5 +34,9 @@ void readPulsioximeter(){
 void loop() {
     int bpm = eHealth.getBPM(); // get heart beats per minute
     Serial.write(bpm); // print heart beats per minute and send value to XBee module
+    int SPO2 = eHealth.getOxygenSaturation();
+    Serial.write(SPO2);
+    uint8_t position = eHealth.getBodyPosition(); 
+    Serial.write(position);
     delay(490);
 }
